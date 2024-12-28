@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internal Marks Prediction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 300px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      width: 100%;
+    }
+    label {
+      font-size: 14px;
+      font-weight: bold;
+      margin-right: 10px;
+      width: 120px;
+      text-align: right;
+    }
+    input[type="text"] {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      flex: 1;
+    }
+    button {
+      padding: 10px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 5px;
+      background: #4caf50;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    @media (max-width: 480px) {
+      .login {
+        width: 90%;
+      }
+      h1 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login">
+    <h1>Internal Marks Prediction</h1>
+    <form action="{{ url_for('predict_datapoint') }}" method="post">
+      <div class="form-group">
+        <label for="ST1">ST1 Marks:</label>
+        <input type="text" id="ST1" name="ST1" placeholder="0 - 25" required />
+      </div>
+
+      <div class="form-group">
+        <label for="ST2">ST2 Marks:</label>
+        <input type="text" id="ST2" name="ST2" placeholder="0 - 50" required />
+      </div>
+
+      <div class="form-group">
+        <label for="PUT">PUT Marks:</label>
+        <input type="text" id="PUT" name="PUT" placeholder="0 - 70" required />
+      </div>
+
+      <div class="form-group">
+        <label for="Attendance">Attendance:</label>
+        <input type="text" id="Attendance" name="Attendance" placeholder="0 - 100%" required />
+      </div>
+
+      <button type="submit">Predict</button>
+    </form>
+  </div>
+</body>
+</html>
